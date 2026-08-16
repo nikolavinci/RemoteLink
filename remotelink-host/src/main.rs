@@ -2,6 +2,7 @@ mod capture;
 mod encoder;
 mod network;
 mod input;
+mod streaming;
 
 #[tokio::main]
 async fn main() {
