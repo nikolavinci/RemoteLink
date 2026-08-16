@@ -3,7 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { getVkCode } from "../utils/keys";
 
 interface InputCaptureOptions {
-  canvasRef: React.RefObject<HTMLCanvasElement>;
+  canvasRef: React.RefObject<HTMLCanvasElement | null>;
   enabled: boolean;
 }
 

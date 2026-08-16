@@ -99,7 +99,7 @@ export const VideoCanvas: React.FC<Props> = ({ width = 1920, height = 1080 }) =>
         position: 'absolute',
         top: 0,
         left: 0,
-        transform: \`translate(\${cursorPos.x}px, \${cursorPos.y}px)\`,
+        transform: `translate(${cursorPos.x}px, ${cursorPos.y}px)`,
         pointerEvents: 'none',
         zIndex: 10,
         width: '20px',
