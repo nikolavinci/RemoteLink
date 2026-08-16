@@ -3,6 +3,7 @@ mod encoder;
 mod network;
 mod input;
 mod streaming;
+mod metrics;
 
 #[tokio::main]
 async fn main() {
