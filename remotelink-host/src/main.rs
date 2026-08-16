@@ -1,10 +1,15 @@
 mod capture;
 mod encoder;
 mod network;
+mod input;
 
 #[tokio::main]
 async fn main() {
     encoder::init();
+    
+    tokio::spawn(async {
+        input::run_input_layer().await;
+    });
     
     // Spawn network server concurrently
     tokio::spawn(async {
