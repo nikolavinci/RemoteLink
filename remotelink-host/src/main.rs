@@ -2,12 +2,20 @@ mod capture;
 mod encoder;
 mod network;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     encoder::init();
-    network::init();
+    
+    // Spawn network server concurrently
+    tokio::spawn(async {
+        if let Err(e) = network::run_server().await {
+            eprintln!("Network server error: {}", e);
+        }
+    });
 
     println!("Starting RemoteLink Host - Desktop Capture Module");
     
+    // Capture loop blocks the main thread
     if let Err(e) = capture::run_capture_loop() {
         eprintln!("Capture loop exited with error: {:?}", e);
     }
